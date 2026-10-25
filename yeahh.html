@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,145 +12,247 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="min-h-screen bg-[#050d18] text-slate-100 antialiased">
 
-    <!-- NAVIGATION -->
-    <header class="navbar">
-        <a href="#home" class="logo">
-            SHARK<span>ATTACK!</span>
+    <!-- SIDEBAR -->
+    <aside class="sidebar fixed left-0 top-0 z-50 flex h-screen flex-col border-r border-cyan-950 bg-[#071521] px-5 py-7">
+
+        <a href="#home" class="mb-12 block text-xl font-black tracking-wide text-white no-underline">
+            SHARK
+            <span class="block text-cyan-400">ATTACK!</span>
         </a>
 
-        <nav class="nav-links">
-            <a href="#home">HOME</a>
-            <a href="#explore">EXPLORE</a>
-            <a href="#quiz">MYTH OR FACT?</a>
-            <a href="#collection">COLLECTION</a>
+        <p class="mb-4 text-[10px] font-bold tracking-[0.25em] text-slate-500">
+            MAIN MENU
+        </p>
+
+        <nav class="flex flex-col gap-2">
+            <a href="#home" class="nav-link flex items-center gap-3 rounded-lg border border-cyan-800 bg-cyan-950/60 px-3 py-3 text-sm font-bold text-cyan-300 transition hover:bg-cyan-900">
+                <span class="nav-icon text-xl">⌂</span>
+                <span class="nav-text">HOME</span>
+            </a>
+
+            <a href="#explore" class="nav-link flex items-center gap-3 rounded-lg border border-transparent px-3 py-3 text-sm font-bold text-slate-400 transition hover:border-cyan-900 hover:bg-slate-800 hover:text-cyan-300">
+                <span class="nav-icon text-xl">◈</span>
+                <span class="nav-text">EXPLORE</span>
+            </a>
+
+            <a href="#quiz" class="nav-link flex items-center gap-3 rounded-lg border border-transparent px-3 py-3 text-sm font-bold text-slate-400 transition hover:border-cyan-900 hover:bg-slate-800 hover:text-cyan-300">
+                <span class="nav-icon text-xl">?</span>
+                <span class="nav-text">MYTH OR FACT?</span>
+            </a>
+
+            <a href="#collection" class="nav-link flex items-center gap-3 rounded-lg border border-transparent px-3 py-3 text-sm font-bold text-slate-400 transition hover:border-cyan-900 hover:bg-slate-800 hover:text-cyan-300">
+                <span class="nav-icon text-xl">▤</span>
+                <span class="nav-text">COLLECTION</span>
+            </a>
         </nav>
 
-        <div class="player-score">
-            <span>PLAYER SCORE</span>
-            <strong>0000</strong>
+        <div class="mt-auto rounded-xl border border-cyan-900 bg-[#0b2232] p-4">
+            <p class="score-label text-[10px] font-bold tracking-widest text-slate-400">
+                PLAYER SCORE
+            </p>
+            <p class="text-3xl font-black text-yellow-300">0000</p>
         </div>
-    </header>
 
-    <main>
+        <p class="sidebar-footer mt-5 text-[10px] font-bold leading-relaxed tracking-[0.2em] text-slate-500">
+            NO FEAR.<br>JUST FINS.
+        </p>
+    </aside>
 
-        <!-- HOME SECTION -->
-        <section id="home" class="hero section">
-            <div class="hero-content">
-                <p class="eyebrow">WELCOME TO THE DEEP</p>
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
 
-                <h1>
-                    SHARK<br>
-                    <span>ATTACK!</span>
-                </h1>
+        <!-- HOME -->
+        <section id="home" class="hero-section relative flex min-h-screen items-center overflow-hidden px-8 py-20 md:px-16">
+            <div class="hero-glow"></div>
 
-                <p class="hero-description">
-                    Dive into the ocean, discover amazing sharks,
-                    and prove that you're the ultimate shark expert.
-                </p>
+            <div class="relative z-10 grid w-full items-center gap-12 lg:grid-cols-2">
 
-                <a href="#explore" class="btn btn-primary">
-                    START EXPLORING →
-                </a>
+                <div>
+                    <p class="mb-5 text-xs font-bold tracking-[0.3em] text-cyan-400">
+                        WELCOME TO THE DEEP
+                    </p>
 
-                <p class="hero-note">NO FEAR. JUST FINS.</p>
-            </div>
+                    <h1 class="mb-6 text-6xl font-black leading-none tracking-tight sm:text-7xl xl:text-8xl">
+                        SHARK
+                        <span class="block text-cyan-400">ATTACK!</span>
+                    </h1>
 
-            <div class="hero-visual">
-                <div class="arcade-label">PLAYER 01</div>
+                    <p class="mb-8 max-w-lg text-base leading-8 text-slate-400">
+                        Dive into the ocean, discover amazing sharks,
+                        and prove that you're the ultimate shark expert.
+                    </p>
 
-                <div class="shark-placeholder">
-                    <span>🦈</span>
+                    <a href="#explore" class="inline-block rounded-lg bg-cyan-400 px-7 py-4 text-xs font-black tracking-wider text-slate-950 no-underline transition hover:-translate-y-1 hover:bg-cyan-300">
+                        START EXPLORING →
+                    </a>
+
+                    <p class="mt-6 text-[10px] font-bold tracking-[0.3em] text-slate-500">
+                        NO FEAR. JUST FINS.
+                    </p>
                 </div>
 
-                <div class="level-badge">
-                    <span>OCEAN LEVEL</span>
-                    <strong>01</strong>
-                </div>
-            </div>
-        </section>
+                <div class="hero-visual relative flex min-h-80 items-center justify-center rounded-3xl border border-cyan-900/60 bg-cyan-950/20 p-8">
+                    <div class="absolute left-5 top-5 text-[10px] font-bold tracking-widest text-cyan-500">
+                        PLAYER 01
+                    </div>
 
-        <!-- EXPLORE SECTION -->
-        <section id="explore" class="section explore-section">
-            <div class="section-heading">
-                <p class="eyebrow">DISCOVER THE OCEAN</p>
-                <h2>SHARK <span>EXPLORER</span></h2>
-                <p>Meet the incredible creatures ruling the deep.</p>
-            </div>
+                    <div class="shark-art select-none">🦈</div>
 
-            <div class="shark-grid">
-                <article class="shark-card">
-                    <div class="shark-image">🦈</div>
-                    <p class="card-number">SPECIES_001</p>
-                    <h3>Great White Shark</h3>
-                    <p>The legendary ocean predator.</p>
-                    <a href="#collection" class="text-link">
-                        DISCOVER MORE ↗
-                    </a>
-                </article>
+                    <div class="absolute bottom-5 right-5 rounded-lg border border-cyan-800 bg-[#071521] px-5 py-3">
+                        <p class="text-[9px] font-bold tracking-widest text-slate-400">
+                            OCEAN LEVEL
+                        </p>
+                        <p class="text-2xl font-black text-yellow-300">01</p>
+                    </div>
 
-                <article class="shark-card">
-                    <div class="shark-image">🦈</div>
-                    <p class="card-number">SPECIES_002</p>
-                    <h3>Whale Shark</h3>
-                    <p>The gentle giant of the sea.</p>
-                    <a href="#collection" class="text-link">
-                        DISCOVER MORE ↗
-                    </a>
-                </article>
-
-                <article class="shark-card">
-                    <div class="shark-image">🦈</div>
-                    <p class="card-number">SPECIES_003</p>
-                    <h3>Hammerhead Shark</h3>
-                    <p>Recognizable by its unique head.</p>
-                    <a href="#collection" class="text-link">
-                        DISCOVER MORE ↗
-                    </a>
-                </article>
-            </div>
-        </section>
-
-        <!-- QUIZ SECTION -->
-        <section id="quiz" class="section quiz-section">
-            <div class="quiz-content">
-                <p class="eyebrow">TEST YOUR KNOWLEDGE</p>
-                <h2>MYTH <span>OR</span> FACT?</h2>
-
-                <p>
-                    Think you know everything about sharks?
-                    It's time to separate ocean myths from reality.
-                </p>
-
-                <div class="quiz-preview">
-                    <span class="quiz-icon">?</span>
-                    <div>
-                        <p class="card-number">CHALLENGE_001</p>
-                        <h3>Ready for the challenge?</h3>
-                        <p>Answer questions and earn your points.</p>
+                    <div class="absolute bottom-5 left-5 text-xs text-cyan-500">
+                        ● SYSTEM ONLINE
                     </div>
                 </div>
 
-                <button class="btn btn-primary" type="button">
-                    PLAY QUIZ →
-                </button>
             </div>
         </section>
 
-        <!-- COLLECTION SECTION -->
-        <section id="collection" class="section collection-section">
-            <div class="section-heading">
-                <p class="eyebrow">BUILD YOUR SHARK DATABASE</p>
-                <h2>YOUR <span>COLLECTION</span></h2>
-                <p>Every shark has a story. Start collecting yours.</p>
+        <!-- EXPLORE -->
+        <section id="explore" class="section-content px-8 py-24 md:px-16">
+            <div class="mb-12">
+                <p class="mb-3 text-xs font-bold tracking-[0.25em] text-cyan-400">
+                    DISCOVER THE OCEAN
+                </p>
+
+                <h2 class="text-4xl font-black sm:text-5xl">
+                    SHARK <span class="text-cyan-400">EXPLORER</span>
+                </h2>
+
+                <p class="mt-4 text-slate-400">
+                    Meet the incredible creatures ruling the deep.
+                </p>
             </div>
 
-            <div class="collection-box">
-                <div class="collection-icon">🗃️</div>
-                <h3>Your collection starts here!</h3>
-                <p>Explore the ocean and discover your favorite sharks.</p>
-                <a href="#explore" class="btn btn-secondary">
+            <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+
+                <article class="shark-card rounded-2xl border border-slate-800 bg-[#0b1726] p-6 transition hover:-translate-y-2 hover:border-cyan-500">
+                    <div class="mb-6 flex h-44 items-center justify-center rounded-xl bg-cyan-950/40">
+                        <span class="card-shark">🦈</span>
+                    </div>
+                    <p class="mb-2 text-[10px] font-bold tracking-widest text-cyan-500">
+                        SPECIES_001
+                    </p>
+                    <h3 class="mb-3 text-xl font-extrabold">Great White Shark</h3>
+                    <p class="mb-6 text-sm leading-6 text-slate-400">
+                        A powerful predator known for its size, speed, and sharp senses.
+                    </p>
+                    <a href="#collection" class="text-xs font-bold tracking-wide text-cyan-400 no-underline hover:text-cyan-200">
+                        DISCOVER MORE ↗
+                    </a>
+                </article>
+
+                <article class="shark-card rounded-2xl border border-slate-800 bg-[#0b1726] p-6 transition hover:-translate-y-2 hover:border-cyan-500">
+                    <div class="mb-6 flex h-44 items-center justify-center rounded-xl bg-cyan-950/40">
+                        <span class="card-shark">🦈</span>
+                    </div>
+                    <p class="mb-2 text-[10px] font-bold tracking-widest text-cyan-500">
+                        SPECIES_002
+                    </p>
+                    <h3 class="mb-3 text-xl font-extrabold">Whale Shark</h3>
+                    <p class="mb-6 text-sm leading-6 text-slate-400">
+                        The world's largest fish, a gentle filter-feeder of the ocean.
+                    </p>
+                    <a href="#collection" class="text-xs font-bold tracking-wide text-cyan-400 no-underline hover:text-cyan-200">
+                        DISCOVER MORE ↗
+                    </a>
+                </article>
+
+                <article class="shark-card rounded-2xl border border-slate-800 bg-[#0b1726] p-6 transition hover:-translate-y-2 hover:border-cyan-500">
+                    <div class="mb-6 flex h-44 items-center justify-center rounded-xl bg-cyan-950/40">
+                        <span class="card-shark">🦈</span>
+                    </div>
+                    <p class="mb-2 text-[10px] font-bold tracking-widest text-cyan-500">
+                        SPECIES_003
+                    </p>
+                    <h3 class="mb-3 text-xl font-extrabold">Hammerhead Shark</h3>
+                    <p class="mb-6 text-sm leading-6 text-slate-400">
+                        An extraordinary shark with a distinctive hammer-shaped head.
+                    </p>
+                    <a href="#collection" class="text-xs font-bold tracking-wide text-cyan-400 no-underline hover:text-cyan-200">
+                        DISCOVER MORE ↗
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- QUIZ -->
+        <section id="quiz" class="section-content quiz-section px-8 py-24 md:px-16">
+            <div class="mx-auto max-w-3xl">
+                <p class="mb-3 text-xs font-bold tracking-[0.25em] text-cyan-400">
+                    TEST YOUR KNOWLEDGE
+                </p>
+
+                <h2 class="mb-6 text-4xl font-black sm:text-6xl">
+                    MYTH <span class="text-cyan-400">OR</span> FACT?
+                </h2>
+
+                <p class="mb-10 max-w-xl leading-7 text-slate-400">
+                    Think you know everything about sharks? It's time to
+                    separate ocean myths from reality.
+                </p>
+
+                <div class="flex flex-col gap-5 rounded-2xl border border-cyan-900 bg-[#0b1726] p-6 sm:flex-row sm:items-center sm:p-8">
+                    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-cyan-400 text-4xl font-black text-slate-950">
+                        ?
+                    </div>
+
+                    <div>
+                        <p class="mb-2 text-[10px] font-bold tracking-widest text-cyan-500">
+                            CHALLENGE_001
+                        </p>
+                        <h3 class="mb-2 text-xl font-extrabold">
+                            Ready for the challenge?
+                        </h3>
+                        <p class="text-sm text-slate-400">
+                            Answer questions and earn your points.
+                        </p>
+                    </div>
+                </div>
+
+                <a href="#collection" class="mt-7 inline-block rounded-lg bg-cyan-400 px-7 py-4 text-xs font-black tracking-wider text-slate-950 no-underline transition hover:bg-cyan-300">
+                    EXPLORE FIRST →
+                </a>
+            </div>
+        </section>
+
+        <!-- COLLECTION -->
+        <section id="collection" class="section-content px-8 py-24 md:px-16">
+            <div class="mb-12 text-center">
+                <p class="mb-3 text-xs font-bold tracking-[0.25em] text-cyan-400">
+                    BUILD YOUR SHARK DATABASE
+                </p>
+
+                <h2 class="text-4xl font-black sm:text-5xl">
+                    YOUR <span class="text-cyan-400">COLLECTION</span>
+                </h2>
+
+                <p class="mt-4 text-slate-400">
+                    Every shark has a story. Start collecting yours.
+                </p>
+            </div>
+
+            <div class="mx-auto max-w-2xl rounded-2xl border border-dashed border-cyan-900 bg-[#0b1726] px-6 py-14 text-center sm:px-12">
+                <div class="mb-5 text-5xl">🗃️</div>
+
+                <h3 class="mb-3 text-2xl font-extrabold">
+                    Your collection starts here!
+                </h3>
+
+                <p class="mb-7 text-sm leading-7 text-slate-400">
+                    Explore the ocean and discover your favorite sharks.
+                    Your collection will grow with every discovery.
+                </p>
+
+                <a href="#explore" class="inline-block rounded-lg border border-cyan-500 px-6 py-3 text-xs font-black tracking-wider text-cyan-300 no-underline transition hover:bg-cyan-400 hover:text-slate-950">
                     FIND YOUR FIRST SHARK →
                 </a>
             </div>
@@ -160,10 +261,20 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <a href="#home" class="logo">SHARK<span>ATTACK!</span></a>
-        <p>BUILT FOR THE OCEAN. POWERED BY CURIOSITY.</p>
-        <a href="#home" class="text-link">BACK TO TOP ↑</a>
+    <footer class="main-content border-t border-slate-800 px-8 py-8 md:px-16">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <a href="#home" class="text-lg font-black text-white no-underline">
+                SHARK<span class="text-cyan-400">ATTACK!</span>
+            </a>
+
+            <p class="text-[10px] font-bold tracking-widest text-slate-500">
+                BUILT FOR THE OCEAN. POWERED BY CURIOSITY.
+            </p>
+
+            <a href="#home" class="text-xs font-bold text-cyan-400 no-underline hover:text-cyan-200">
+                BACK TO TOP ↑
+            </a>
+        </div>
     </footer>
 
 </body>
