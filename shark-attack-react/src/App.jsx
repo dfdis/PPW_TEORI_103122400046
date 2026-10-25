@@ -1,121 +1,104 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import Navbar from './components/Navbar'
+import SharkCard from './components/SharkCard'
+import QuizCard from './components/QuizCard'
+import Collection from './components/Collection'
+import Footer from './components/Footer'
 import './App.css'
 
+const sharks = [
+  {
+    id: 1,
+    name: 'Great White Shark',
+    scientificName: 'Carcharodon carcharias',
+    description:
+      'A powerful ocean predator known for its size and incredible senses.',
+    image:
+      'https://images.unsplash.com/photo-1560275619-4662e36fa65c?w=600',
+  },
+  {
+    id: 2,
+    name: 'Whale Shark',
+    scientificName: 'Rhincodon typus',
+    description:
+      'The largest fish in the ocean, known for its gentle nature.',
+    image:
+      'https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=600',
+  },
+  {
+    id: 3,
+    name: 'Hammerhead Shark',
+    scientificName: 'Sphyrna mokarran',
+    description:
+      'Recognizable by its unique hammer-shaped head.',
+    image:
+      'https://images.unsplash.com/photo-1568454537842-d933259bb258?w=600',
+  },
+]
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [mySharks, setMySharks] = useState([])
+
+  function addShark(name) {
+    const newShark = {
+      id: Date.now(),
+      name: name,
+    }
+
+    setMySharks((currentSharks) => [
+      ...currentSharks,
+      newShark,
+    ])
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
+    <div className="app">
+      <Navbar />
+
+      <main className="main-content">
+        <section id="home" className="page-content">
+          <p>WELCOME TO THE OCEAN</p>
+          <h1>SHARK ATTACK!</h1>
           <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+            Discover the ocean's most fascinating predators.
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+        </section>
 
-      <div className="ticks"></div>
+        <section id="explore" className="page-content">
+          <p>MEET THE PREDATORS</p>
+          <h2>Explore Shark Species</h2>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <div className="shark-grid">
+            {sharks.map((shark) => (
+              <SharkCard
+                key={shark.id}
+                name={shark.name}
+                scientificName={shark.scientificName}
+                description={shark.description}
+                image={shark.image}
+              />
+            ))}
+          </div>
+        </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+        <section id="myth" className="page-content">
+          <p>TEST YOUR KNOWLEDGE</p>
+          <h2>Myth or Fact?</h2>
+
+          <QuizCard
+            category="SHARK MYTHS"
+            question="Sharks can detect tiny amounts of blood in the water."
+          />
+        </section>
+
+        <Collection
+          sharks={mySharks}
+          onAdd={addShark}
+        />
+      </main>
+
+      <Footer />
+    </div>
   )
 }
 
