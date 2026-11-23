@@ -1,16 +1,109 @@
-# React + Vite
+# Shark Attack 🦈
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplikasi web untuk mengenal berbagai jenis hiu dan mengelola koleksi hiu pribadi. Project ini dibuat untuk memenuhi tugas mata kuliah Pengembangan dan Pemrograman Web (PPW).
 
-Currently, two official plugins are available:
+## Teknologi yang Digunakan
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Frontend
+- React.js
+- Vite
+- CSS
 
-## React Compiler
+### Backend
+- NestJS
+- TypeScript
+- class-validator
+- class-transformer
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Fitur Aplikasi
 
-## Expanding the ESLint configuration
+- Menampilkan informasi berbagai spesies hiu.
+- Menampilkan koleksi hiu pribadi.
+- Menambahkan data hiu (Create).
+- Melihat data hiu (Read).
+- Mengubah data hiu (Update).
+- Menghapus data hiu (Delete).
+- Validasi input menggunakan DTO.
+- Penanganan error menggunakan HTTP exceptions.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Struktur Project
+
+```text
+shark-attack-react/
+├── backend/
+│   ├── src/
+│   │   └── sharks/
+│   │       ├── dto/
+│   │       ├── entities/
+│   │       ├── sharks.controller.ts
+│   │       └── sharks.service.ts
+│   └── sharks.http
+├── frontend/
+│   └── src/
+│       ├── components/
+│       ├── App.jsx
+│       └── App.css
+├── docs/
+│   └── screnshoots
+└── README.md
+```
+
+## API Endpoints
+
+| Method | Endpoint | Fungsi |
+|---|---|---|
+| GET | `/sharks` | Menampilkan semua hiu |
+| GET | `/sharks/:id` | Menampilkan hiu berdasarkan ID |
+| POST | `/sharks` | Menambahkan hiu |
+| PATCH | `/sharks/:id` | Mengubah data hiu |
+| DELETE | `/sharks/:id` | Menghapus hiu |
+
+## Validasi dan Error Handling
+
+Backend menggunakan DTO dengan `class-validator` untuk memvalidasi data yang diterima.
+
+HTTP exceptions yang digunakan:
+- 400 Bad Request: input tidak valid.
+- 404 Not Found: data hiu tidak ditemukan.
+- 409 Conflict: nama hiu sudah terdaftar.
+
+## Cara Menjalankan Project
+
+### 1. Menjalankan Backend
+
+```bash
+cd backend
+npm install
+npm run start:dev
+```
+
+Backend berjalan di:
+
+`http://localhost:3000`
+
+### 2. Menjalankan Frontend
+
+Buka terminal baru:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend berjalan di:
+
+`http://localhost:5173`
+
+## Dokumentasi Pengujian
+
+Screenshot hasil pengujian API dan fitur CRUD dapat dilihat pada folder `docs`.
+
+## Catatan
+
+Data hiu disimpan menggunakan array sementara (in-memory), sehingga data akan kembali kosong ketika server backend dijalankan ulang.
+
+---
+
+**Project:** Shark Attack  
+**Mata Kuliah:** Pengembangan dan Pemrograman Web (PPW)

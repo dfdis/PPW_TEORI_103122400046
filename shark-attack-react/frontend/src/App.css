@@ -316,3 +316,64 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Collection action buttons */
+.collection-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.collection-actions button,
+.collection-item form button {
+  padding: 9px 18px;
+  border: 1px solid #67e8f9;
+  border-radius: 8px;
+  background: #12304a;
+  color: #67e8f9;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.collection-actions button:hover,
+.collection-item form button:hover {
+  background: #67e8f9;
+  color: #091525;
+  transform: translateY(-2px);
+}
+
+.collection-actions button:last-child {
+  border-color: #f87171;
+  color: #f87171;
+}
+
+.collection-actions button:last-child:hover {
+  background: #f87171;
+  color: #091525;
+}
+
+/* Edit form */
+.collection-item form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.collection-item form input {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 12px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  outline: none;
+  background: #091525;
+  color: #f1f5f9;
+}
+
+.collection-item form input:focus {
+  border-color: #67e8f9;
+}
